@@ -5,6 +5,10 @@ const unitSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    pricePerMonth:{
+        type: Number,
+        required: true
+    },
     description: {
         type: String
     },
@@ -38,4 +42,4 @@ const unitSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model("Units", unitSchema)
-//TODO: images, proprtyid, price, ownerid, amenities, status, available dates
+//TODO: images, proprtyid, ownerid, amenities, status, available dates
