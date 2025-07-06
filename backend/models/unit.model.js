@@ -38,4 +38,4 @@ const unitSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model("Units", unitSchema)
-//TODO: images, proprtyid, price, ownerid, amenities, available dates,  
+//TODO: images, proprtyid, price, ownerid, amenities, status, available dates
