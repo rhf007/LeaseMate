@@ -1,8 +1,8 @@
 const User = require("../models/user.model");
 const generateToken = require("../utils/generateToken");
-const uploadToCloudinary = require("../utils/uploadToCloudinary");
+const uploadToCloudinary = require("../utils/uploadtoCloudinary");
 
-// ✅ Register
+// Register
 const register = async (req, res) => {
   const { name, email, phone, password, role } = req.body;
   const userExists = await User.findOne({ $or: [{ email }, { phone }] });
@@ -18,7 +18,7 @@ const register = async (req, res) => {
   });
 };
 
-// ✅ Login
+//  Login
 const login = async (req, res) => {
   const { emailOrPhone, password } = req.body;
   const user = await User.findOne({
@@ -37,13 +37,13 @@ const login = async (req, res) => {
   }
 };
 
-// ✅ Get Profile
+// Get Profile
 const getProfile = async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
   res.json(user);
 };
 
-// ✅ Update Profile
+// Update Profile
 const updateProfile = async (req, res) => {
   const user = await User.findById(req.user._id);
   if (user) {
@@ -58,7 +58,7 @@ const updateProfile = async (req, res) => {
   }
 };
 
-// ✅ Upload Avatar
+// Upload Avatar
 const uploadAvatar = async (req, res) => {
   try {
     if (!req.file) {
@@ -81,7 +81,7 @@ const uploadAvatar = async (req, res) => {
   }
 };
 
-// ✅ Upload ID & Selfie for Verification
+// Upload ID & Selfie for Verification
 const uploadVerification = async (req, res) => {
   try {
     const { idFile, selfieFile } = req.files;
