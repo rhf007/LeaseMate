@@ -1,14 +1,12 @@
 # Node.js
 node_modules/
 dist/
-
-
+# Logs
+*.log
 # Environment files
 .env
-
 # VS Code
 .vscode/
-
 # OS/Editor-specific
 *.swp
 Thumbs.db
