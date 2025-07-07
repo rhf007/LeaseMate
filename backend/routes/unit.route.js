@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const {getAllUnits} = require("../controllers/unit.controller")
+const {getAllUnits, addUnit, updateUnit, deleteUnit} = require("../controllers/unit.controller")
 
 router
   .route("/")
-  .get(getAllUnits);
-
+  .get(getAllUnits)
+  .post(addUnit)
+  .patch(updateUnit)
+  .delete(deleteUnit)
   module.exports = router;

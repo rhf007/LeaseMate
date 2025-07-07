@@ -35,33 +35,33 @@ const unitSchema = new mongoose.Schema({
 
   pricePerMonth: {
     type: Number,
-    required: true,
+    // required: true,
   },
 
   numRooms: {
     type: Number,
-    required: true,
+    // required: true,
   },
   space: {
     type: Number,
-    required: true,
+    // required: true,
   },
   isFurnished: {
     type: Boolean,
-    required: true,
+    // required: true,
   },
 
   address: {
     type: String,
-    required: true,
+    // required: true,
   },
   city: {
     type: String,
-    required: true,
+    // required: true,
   },
   governorate: {
     type: String,
-    required: true,
+    // required: true,
   },
   postalCode: {
     type: Number,
@@ -69,34 +69,34 @@ const unitSchema = new mongoose.Schema({
 
   hasPool: {
     type: Boolean,
-    required: function () {
-      return this.type === "villa";
-    },
+    // required: function () {
+    //   return this.type === "villa";
+    // },
     default: false,
   },
   hasAC: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false,
   },
   hasTV: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false,
   },
   hasWifi: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false,
   },
   hasKitchenware: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false,
   },
   hasHeating: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false,
   },
 
