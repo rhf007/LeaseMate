@@ -10,16 +10,12 @@ const getAllUnits = asyncWrapper(async (req, res) => {
 });
 
 const getUnit = asyncWrapper(async (req, res, next) => {
-  const unit = await Unit.findById(req.params.id)
-      if (!unit) {
-        const error = appError.create(
-          "Unit not found",
-          404,
-          httpStatusText.FAIL
-        );
-        return next(error);
-      }
-      res.status(200).json({ status: httpStatusText.SUCCESS, data: { unit} });
+  const unit = await Unit.findById(req.params.id);
+  if (!unit) {
+    const error = appError.create("Unit not found", 404, httpStatusText.FAIL);
+    return next(error);
+  }
+  res.status(200).json({ status: httpStatusText.SUCCESS, data: { unit } });
 });
 
 const addUnit = asyncWrapper(async (req, res, next) => {
@@ -36,5 +32,14 @@ const addUnit = asyncWrapper(async (req, res, next) => {
     .status(201)
     .json({ status: httpStatusText.SUCCESS, data: { unit: unit } });
 });
-module.exports = { getAllUnits, getUnit, addUnit/* , updateUnit, deleteUnit */ };
+
+const updateUnit = asyncWrapper(async (req, res) => {
+  const { id } = req.params;
+  const unit = await Unit.findByIdAndUpdate(id, {
+    $set: { ...req.body },
+  });
+  res.status(200).json({ status: httpStatusText.SUCCESS, data: { unit: unit } });
+});
+
+module.exports = { getAllUnits, getUnit, addUnit, updateUnit /*deleteUnit */ };
 //TODO: handle unit update and delete
