@@ -41,5 +41,10 @@ const updateUnit = asyncWrapper(async (req, res) => {
   res.status(200).json({ status: httpStatusText.SUCCESS, data: { unit: unit } });
 });
 
-module.exports = { getAllUnits, getUnit, addUnit, updateUnit /*deleteUnit */ };
-//TODO: handle unit update and delete
+const deleteUnit = asyncWrapper(async (req, res) => {
+  const { id } = req.params;
+  await Unit.findByIdAndDelete(id)
+  res.status(200).json({status: httpStatusText.SUCCESS, data: null})
+});
+
+module.exports = { getAllUnits, getUnit, addUnit, updateUnit, deleteUnit };
